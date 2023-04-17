@@ -1,4 +1,4 @@
-interface EarthData {
+interface PlanetData {
   _id: string;
   name: string;
   overview: {

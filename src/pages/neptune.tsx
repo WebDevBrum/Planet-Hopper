@@ -1,12 +1,18 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import { getPlanetAsProps } from "../../lib/data";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Neptune() {
+export default function Neptune({ planet }: { planet: PlanetData }) {
+  console.log(planet);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Welcome to neptune</h1>
+      <h1>Welcome to </h1>
+      <p>{planet.name}</p>
     </main>
   );
+}
+
+export async function getStaticProps() {
+  const planet = await getPlanetAsProps("neptune");
+
+  return planet;
 }

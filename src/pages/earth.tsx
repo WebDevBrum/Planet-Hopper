@@ -1,17 +1,49 @@
 import Image from "next/image";
 import { getPlanetAsProps } from "../../lib/data";
 
-export default function Earth({ planet }: { planet: EarthData }) {
+export default function Earth({ planet }: { planet: PlanetData }) {
   console.log(planet);
+
+  const planetList = [
+    "MERCURY",
+    "VENUS",
+    "EARTH",
+    "MARS",
+    "JUPITER",
+    "URANUS",
+    "NEPTUNE",
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Welcome home earthling</h1>
+    <div>
+      <div className="flex w-full justify-between h-[85px] px-7 leading-9  border-b-[1px] border-white/[0.2]">
+        <h1 className="text-[28px] font-antonio text-white relative top-[22px]">
+          THE PLANETS
+        </h1>
+        <ol className="flex w-[50%] justify-between relative top-[30px]  ">
+          {planetList.map((planet) => {
+            return (
+              <li
+                className="text-[12px]  text-white font-spartanReg  tracking=[1px]"
+                key={planet}
+              >
+                {planet}
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+
       <p>{planet.name}</p>
-    </main>
+    </div>
   );
 }
 
-export { getPlanetAsProps as getStaticProps };
+export async function getStaticProps() {
+  const planet = await getPlanetAsProps("earth");
+
+  return planet;
+}
 
 // // This function gets called at build time on server-side.
 // // It won't be called on client-side, so you can even do
