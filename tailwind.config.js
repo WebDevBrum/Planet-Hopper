@@ -22,6 +22,13 @@ module.exports = {
       spartanReg: ["SPARTAN-REG"],
       antonio: ["ANTONIO-MD"],
     },
+    screens: {
+      desktop: "1024px", // was 1024
+      tablet: "768px",
+
+      // => @media (min-width: 640px) { ... }
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

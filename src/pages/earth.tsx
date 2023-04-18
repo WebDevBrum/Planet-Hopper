@@ -1,40 +1,16 @@
-import Image from "next/image";
 import { getPlanetAsProps } from "../../lib/data";
 
 export default function Earth({ planet }: { planet: PlanetData }) {
   console.log(planet);
 
-  const planetList = [
-    "MERCURY",
-    "VENUS",
-    "EARTH",
-    "MARS",
-    "JUPITER",
-    "URANUS",
-    "NEPTUNE",
-  ];
-
   return (
     <div>
-      <div className="flex w-full justify-between h-[85px] px-7 leading-9  border-b-[1px] border-white/[0.2]">
-        <h1 className="text-[28px] font-antonio text-white relative top-[22px]">
-          THE PLANETS
-        </h1>
-        <ol className="flex w-[50%] justify-between relative top-[30px]  ">
-          {planetList.map((planet) => {
-            return (
-              <li
-                className="text-[12px]  text-white font-spartanReg  tracking=[1px]"
-                key={planet}
-              >
-                {planet}
-              </li>
-            );
-          })}
-        </ol>
-      </div>
-
-      <p>{planet.name}</p>
+      <p className=" text-white">{planet.name}</p>
+      <p className="hidden desktop:inline-block  text-white">Desktop</p>
+      <p className="tablet:hidden  text-white">Mobile</p>
+      <p className="hidden tablet:inline-block desktop:hidden text-white">
+        Tablet
+      </p>
     </div>
   );
 }
