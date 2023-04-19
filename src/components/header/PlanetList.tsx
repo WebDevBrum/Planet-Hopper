@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const PlanetList = ({
   planets,
   menu,
@@ -14,12 +16,14 @@ const PlanetList = ({
       <ol className=" flex  flex-col justify-between h-[80%] p-7 ">
         {planets.map((planet) => {
           return (
-            <li
-              className="text-[12px]  text-white font-spartanReg  tracking=[1px]"
-              key={planet}
-            >
-              {planet}
-            </li>
+            <Link href={`/${planet.toLowerCase()}`} key={planet}>
+              <li
+                className="text-[0.75rem]  text-white font-spartanReg  tracking=[1px]"
+                key={planet}
+              >
+                {planet}
+              </li>
+            </Link>
           );
         })}
       </ol>
