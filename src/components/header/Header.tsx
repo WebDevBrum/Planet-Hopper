@@ -15,6 +15,7 @@ const Header = () => {
     "EARTH",
     "MARS",
     "JUPITER",
+    "SATURN",
     "URANUS",
     "NEPTUNE",
   ];

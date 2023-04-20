@@ -22,4 +22,5 @@ interface PlanetData {
     internal: string;
     geology: string;
   };
+  [key: string]: any;
 }
