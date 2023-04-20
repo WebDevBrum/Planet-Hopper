@@ -3,7 +3,9 @@ import { getPlanetAsProps } from "../../lib/data";
 import PlanetImage from "./body/PlanetImage";
 
 const Content = ({ planet }: { planet: PlanetData }) => {
-  const [selection, setSelection] = useState("Overview");
+  type Selection = "Overview" | "Structure" | "Geology";
+
+  const [selection, setSelection] = useState<Selection>("Overview");
 
   return (
     <div className="h-[100vh]">
